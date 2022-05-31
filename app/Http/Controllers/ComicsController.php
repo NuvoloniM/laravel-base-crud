@@ -28,7 +28,8 @@ class ComicsController extends Controller
      */
     public function create()
     {
-        //
+        // ritorno la vista del form dove creare nuove istanze
+        return view('pages.comics.create');
     }
 
     /**
@@ -39,7 +40,20 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //qui devo inserire la logica che prende i dati dal form e crea l'istanza nella tabella del DB
+        // la rrequest viene inviata tramite post una volta submit il form
+
+        // istanzio variabiole che contiene tutti i dati inseriti nel form
+        $data = $request->all();
+
+        // creo un nuovo record della tabella vuoto 
+        $new_comic = new Comic();
+        // riempio e salvo il record nuovo con i dati della request
+        $new_comic->fill($data);
+        $new_comic->save();
+
+        // ritornami la vista show del nuovo record creato
+        return redirect()->route('comics.show', $new_comic);
     }
 
     /**
