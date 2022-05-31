@@ -11,7 +11,6 @@
             <th scope="col">#</th>
             <th scope="col">Image</th>
             <th scope="col">Title</th>
-            <th scope="col">Description</th>
             <th scope="col">Price</th>
             <th scope="col">Series</th>
             <th scope="col">Sale date</th>
@@ -28,8 +27,7 @@
                     <img src=" {{ $comic->thumb}}" alt="img">
                 </td>
                 <td> {{$comic->title}}</td>
-                <td> {{$comic->description}}</td>
-                <td> {{$comic->price}}</td>
+                <td> {{$comic->price}}€ </td>
                 <td> {{$comic->series}}</td>
                 <td> {{$comic->sale_date}}</td>
                 <td> {{$comic->type}}</td>

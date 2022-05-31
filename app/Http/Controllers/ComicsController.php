@@ -48,9 +48,11 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    // posso passarmi direttamente tutto il dato singolo 
+    public function show(Comic $comic)
     {
-        //
+        // ritorno la show solo dei dati singoli passati
+        return view( 'pages.comics.show', compact('comic') );
     }
 
     /**
