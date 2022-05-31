@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Rotte pagine statiche 
+Route::get('/', 'PagesController@home') ->name('home');
+Route::get('/contact', 'PagesController@contact') ->name('contact');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Rotte resource per pagine dinamiche
+Route::resource('comics', 'ComicsController');
