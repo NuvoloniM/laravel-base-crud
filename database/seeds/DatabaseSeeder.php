@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        // scommento per poter lanciare il seeder senza specficare la classe
+        $this->call( ComicSeeder::class );
     }
 }
