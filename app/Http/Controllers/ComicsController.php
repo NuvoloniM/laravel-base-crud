@@ -49,8 +49,8 @@ class ComicsController extends Controller
         // creo un nuovo record della tabella vuoto 
         $new_comic = new Comic();
         // riempio e salvo il record nuovo con i dati della request
-        $new_comic->fill($data);
-        $new_comic->save();
+        $new_comic -> fill( $data );
+        $new_comic -> save();
 
         // ritornami la vista show del nuovo record creato
         return redirect()->route('comics.show', $new_comic);
