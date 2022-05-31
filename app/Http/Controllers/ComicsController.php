@@ -14,7 +14,11 @@ class ComicsController extends Controller
      */
     public function index()
     {
-        //
+        // creo la funzione index, che mi collega i dati del database
+        // query che mi riporta tutti i dati del database
+        $comics = Comic::All();
+
+        return view('pages.comics.index' , compact('comics') );
     }
 
     /**
