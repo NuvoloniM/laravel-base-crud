@@ -75,9 +75,10 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        // come in show, ritorno la vista dell'edit(form) masolo del comic selezionato
+        return view('pages.comics.edit', compact('comic'));
     }
 
     /**
@@ -87,9 +88,20 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        // istanzio variabile che raccoglie dati presi dal form modifica 
+        $data = $request->all();
+        // tramite shortcut update() modifico i dati vecchi con quelli nuovi 
+        $comic->update($data);
+
+        // metodo più 'lungo'
+         // $data = $request->all();
+        // $comic->fill($data);
+        // $comic->save();
+
+        // finito l'update ritorno alla show del singolo comics modificato, con i dati nuovi.
+        return redirect()->route( 'comics.show', $comic )->with('message', "Hai aggiornato con successo: $comic->title");
     }
 
     /**
