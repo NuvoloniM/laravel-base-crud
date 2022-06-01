@@ -53,8 +53,8 @@
             <div class="mb-3">
                 <select class="form-select" aria-label="Default select example" name="type">
                     <option selected>Open this select menu</option>
-                    <option value="comic_book">Comic Book</option>
-                    <option value="graphic_novel">Graphic Novel</option>
+                    <option value="comic book">Comic Book</option>
+                    <option value="graphic novel">Graphic Novel</option>
                  /select>
             </div>
         </form>
