@@ -3,6 +3,8 @@
 @section('title', 'Comic Details')
 
 @section('content')
+
+@include('includes.message')
 <div class="container text-center">
     <h1 class="text-primary">{{ $comic->title}}</h1>
     <img src="{{$comic->thumb}}" alt="comic img">

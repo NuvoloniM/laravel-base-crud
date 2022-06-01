@@ -4,6 +4,9 @@
 
 @section('content')
     <h1>Comics List</h1>
+    {{-- includo sezione messaggio --}}
+    @include('includes.message')
+
     <a href=" {{ route( 'comics.create' ) }} " class="btn btn-info">aggiungi un nuovo fumetto</a>
 
     <table class="table table-info">
@@ -34,6 +37,7 @@
                 <td> {{$comic->type}}</td>
                 <td>
                     <a href=" {{ route( 'comics.show', $comic->id ) }} " class="btn btn-primary">view</a>
+                    <a href=" {{ route( 'comics.edit', $comic->id ) }} " class="btn btn-warning">edit</a>
                 </td>
               </tr>
             @empty
