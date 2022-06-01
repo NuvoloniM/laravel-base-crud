@@ -39,7 +39,7 @@
                     <a href=" {{ route( 'comics.show', $comic->id ) }} " class="btn btn-primary">view</a>
                     <a href=" {{ route( 'comics.edit', $comic->id ) }} " class="btn btn-warning">edit</a>
                     {{-- per poter passare l'evento del delete devo usare un form, contenente solo il tasto --}}
-                    <form action="{{ route('comics.destroy', $comic->id)}}" method="POST" class="delete-form py-3">
+                    <form action="{{ route('comics.destroy', $comic->id)}}" method="POST" class="delete-form py-3" data-name="{{ $comic->title}}">
                       {{-- uso @method per poter usare il metofo delete  --}}
                       @method('DELETE')
                       @csrf
@@ -55,4 +55,11 @@
       </table>
 
 
+@endsection
+
+
+{{-- compilo lo yield in layout con la logica JS creata per allert quando elimino i msg --}}
+@section('delete-message')
+      {{-- con asset vado in public e linko lo script JS del delete Message se no non mi funziona la logica --}}
+    <script src=" {{ asset('js/deleteMessage.js') }} "></script>
 @endsection
