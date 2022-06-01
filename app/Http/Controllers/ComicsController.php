@@ -110,8 +110,11 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        //attivo metodo dleete per eliminare tutti i dati passati dalla variabile
+        $comic->delete();
+        // nel message uso le doppie virgolette perché così non devo concatenare stringa a comic->ecc
+        return redirect()->route('comics.index')->with('message', "Hai eliminato con successo: $comic->title");
     }
 }

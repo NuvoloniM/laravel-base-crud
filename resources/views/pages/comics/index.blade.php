@@ -38,6 +38,13 @@
                 <td>
                     <a href=" {{ route( 'comics.show', $comic->id ) }} " class="btn btn-primary">view</a>
                     <a href=" {{ route( 'comics.edit', $comic->id ) }} " class="btn btn-warning">edit</a>
+                    {{-- per poter passare l'evento del delete devo usare un form, contenente solo il tasto --}}
+                    <form action="{{ route('comics.destroy', $comic->id)}}" method="POST" class="delete-form py-3">
+                      {{-- uso @method per poter usare il metofo delete  --}}
+                      @method('DELETE')
+                      @csrf
+                      <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
                 </td>
               </tr>
             @empty
